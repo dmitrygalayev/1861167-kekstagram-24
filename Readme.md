@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Дмитрий Галаев](https://up.htmlacademy.ru/javascript/24/user/1861167).
-* Наставник: [Андрей Корейкин] (https://htmlacademy.ru/profile/ankormoreankor).
+* Наставник: [Андрей Корейкин](https://htmlacademy.ru/profile/ankormoreankor).
 
 ---
 

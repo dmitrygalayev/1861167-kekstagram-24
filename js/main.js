@@ -10,6 +10,6 @@ const getRndInteger = function (min, max) {
 getRndInteger(); // Функция №1
 
 const commentLength = function (line, maximumLength) {
-  return !!((line <= maximumLength && maximumLength < 141));
+  return line <= maximumLength;
 };
 commentLength(); // Функция №2

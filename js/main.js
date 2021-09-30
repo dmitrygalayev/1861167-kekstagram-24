@@ -1,4 +1,4 @@
-const getRndInteger = function (min, max) {
+const getRndInteger = (min, max) => {
   if (min < 0 || max < 0 || min >= max) {
     const message = 'Некорректные входные данные: min < 0, max < 0 или min >= max';
     // eslint-disable-next-line no-console
@@ -9,7 +9,6 @@ const getRndInteger = function (min, max) {
 };
 getRndInteger(); // Функция №1
 
-const commentLength = function (line, maximumLength) {
-  return line <= maximumLength;
-};
+// eslint-disable-next-line arrow-body-style
+const commentLength = (line, maximumLength) => line <= maximumLength;
 commentLength(); // Функция №2

@@ -33,17 +33,13 @@ const getRndInteger = (min, max) => {
   }
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 };
-getRndInteger(); // Функция №1
+getRndInteger();
 const DESCRIPTION = 'Ещё одно потрясающее фото';
-const randomIndex25 = getRndInteger (0, 24);
-const randomIndex200 = getRndInteger (14, 199);
-const randomIndex225 = getRndInteger (0, 24);
-
 const rndObjectGeneration = () => ({
-  id: FROM1TO25[randomIndex25] ,
-  url: `photos/${  FROM1TO25[randomIndex225]  }.jpg`,
+  id: FROM1TO25[getRndInteger (0, 24)] ,
+  url: `photos/${  FROM1TO25[getRndInteger (0, 24)]  }.jpg`,
   description: DESCRIPTION,
-  likes: FROM15TO200[randomIndex200],
+  likes: FROM15TO200[getRndInteger (14, 199)],
   comments: [],
 });
 // eslint-disable-next-line no-console

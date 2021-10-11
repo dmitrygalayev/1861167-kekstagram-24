@@ -1,4 +1,4 @@
-const DESCRIPTION = 'Ещё одно потрясающее фото';
+const DESCRIPTIONS = ['Ещё одно потрясающее фото', 'Фото с котом', 'Фото в горах', 'Фото на пляже', 'Фото в пивной'];
 const AVATAR_INDEX = {
   min: 1,
   max: 6,
@@ -14,26 +14,19 @@ const COMMENT_MESSAGES = [
 const COMMENT_MESSAGES_MAX_LENGTH = 2;
 const COMMENT_NAMES = ['Филарет', 'Дионис', 'Ахиллес', 'Агамемнон', 'Одиссей',
   'Ариадна', 'Психея','Гера', 'Афина', 'Арес'];
-const ID_INDEX ={
+
+const GET_PHOTOS_INDEXES = {
   min: 1,
   max: 25,
-};
-const URL_INDEX ={
-  min: 1,
-  max: 25,
+  length: 25,
 };
 const LIKES_INDEX = {
   min: 15,
   max: 200,
   length: 185,
 };
-const COMMENT_ID_INDEX = {
-  min: 1,
-  max: 100000,
-  length: 99999,
-};
 const COMMENT_AMOUNT_RANGE = {
   min: 1,
   max: 10,
 };
-export {COMMENT_MESSAGES, DESCRIPTION, AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_NAMES, ID_INDEX, URL_INDEX, LIKES_INDEX, COMMENT_ID_INDEX, COMMENT_AMOUNT_RANGE};
+export {GET_PHOTOS_INDEXES, COMMENT_MESSAGES, DESCRIPTIONS, AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_NAMES, LIKES_INDEX, COMMENT_AMOUNT_RANGE};

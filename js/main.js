@@ -1,12 +1,18 @@
-import {getComments, getRndIntArray} from './utils.js';
-import {DESCRIPTION, ID_INDEX, URL_INDEX, LIKES_INDEX} from './constants.js';
+import {getComments, getRndIntArray, getRndInteger, getRndNumberOfItemsFromArray} from './utils.js';
+import {DESCRIPTIONS, LIKES_INDEX, GET_PHOTOS_INDEXES} from './constants.js';
 
-const getObject = (amount) => ({
-  id: getRndIntArray(ID_INDEX.min, ID_INDEX.max, amount),
-  url: `photos/${getRndIntArray(URL_INDEX.min, URL_INDEX.max, amount)}.jpg`,
-  description: DESCRIPTION,
-  likes: getRndIntArray(LIKES_INDEX.min, LIKES_INDEX.max, LIKES_INDEX.length),
-  comments: getComments(),
+const getPhoto = (id = 1) => ({
+  id,
+  url: `photos/${id}.jpg`,
+  description: getRndNumberOfItemsFromArray(DESCRIPTIONS)[0],
+  likes: getRndInteger(LIKES_INDEX.min, LIKES_INDEX.max),
+  comments: getComments(id),
 });
 
-getObject();
+const getPhotos = () => getRndIntArray (GET_PHOTOS_INDEXES.min, GET_PHOTOS_INDEXES.max, GET_PHOTOS_INDEXES.length).map(
+  (id) => getPhoto(id),
+);
+
+
+// eslint-disable-next-line no-console
+console.log(getPhotos());

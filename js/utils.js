@@ -1,4 +1,4 @@
-import {AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_MESSAGES, COMMENT_NAMES, COMMENT_AMOUNT_RANGE} from './constants.js';
+import {} from './constants.js';
 // // const commentLength = (line, maximumLength) => line.length <= maximumLength;
 
 const getRndInteger = (min, max) => {
@@ -44,18 +44,4 @@ const getRndNumberOfItemsFromArray = (array, maxLength) => {
   // eslint-disable-next-line id-length
   return Array.from({length: arrayLength}, (item, i) => array[rndArray[i]]);
 };
-
-const getComment = (id) => ({
-  id: id,
-  avatar: `img/avatar-${getRndInteger(AVATAR_INDEX.min, AVATAR_INDEX.max)}.svg`,
-  message: getStringFromArray(getRndNumberOfItemsFromArray(COMMENT_MESSAGES, COMMENT_MESSAGES_MAX_LENGTH)),
-  name: COMMENT_NAMES[getRndInteger(0, 9)],
-});
-
-const getComments = (
-  id,
-  length = getRndInteger(COMMENT_AMOUNT_RANGE.min, COMMENT_AMOUNT_RANGE.max),
-// eslint-disable-next-line id-length
-) => Array.from({length}, (int, i) => getComment(id + 10000 + i + 1));
-
-export {getRndInteger, getRndIntArray, getRndNumberOfItemsFromArray, getComments, getStringFromArray};
+export {getRndInteger, getRndIntArray, getRndNumberOfItemsFromArray, getStringFromArray};

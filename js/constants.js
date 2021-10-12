@@ -15,18 +15,16 @@ const COMMENT_MESSAGES_MAX_LENGTH = 2;
 const COMMENT_NAMES = ['Филарет', 'Дионис', 'Ахиллес', 'Агамемнон', 'Одиссей',
   'Ариадна', 'Психея','Гера', 'Афина', 'Арес'];
 
-const GET_PHOTOS_INDEXES = {
+const PHOTOS_INDEXS = {
   min: 1,
   max: 25,
-  length: 25,
 };
 const LIKES_INDEX = {
   min: 15,
   max: 200,
-  length: 185,
 };
 const COMMENT_AMOUNT_RANGE = {
   min: 1,
   max: 10,
 };
-export {GET_PHOTOS_INDEXES, COMMENT_MESSAGES, DESCRIPTIONS, AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_NAMES, LIKES_INDEX, COMMENT_AMOUNT_RANGE};
+export {PHOTOS_INDEXS, COMMENT_MESSAGES, DESCRIPTIONS, AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_NAMES, LIKES_INDEX, COMMENT_AMOUNT_RANGE};

@@ -1,6 +1,6 @@
 import {} from './constants.js';
 // // const commentLength = (line, maximumLength) => line.length <= maximumLength;
-
+// Генерирует рандомное число в заданном диапазоне
 const getRndInteger = (min, max) => {
   if (min < 0 || max < 0 || min >= max) {
     const message = 'Некорректные входные данные: min < 0, max < 0 или min >= max';
@@ -10,9 +10,9 @@ const getRndInteger = (min, max) => {
   }
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 };
-
+// Cоединяет элементы массива с переносом строки
 const getStringFromArray = (array) => array.join('\n');
-
+// Создает массив целых чисел заданной длины в заданном диапазоне
 const getRndIntArray = (min, max, length) => {
   if(!length) {
     return;
@@ -37,7 +37,7 @@ const getRndIntArray = (min, max, length) => {
   }
   return array;
 };
-
+// Выбирает рандомное количество элементов из массива
 const getRndNumberOfItemsFromArray = (array, maxLength) => {
   const arrayLength = getRndInteger(1, maxLength) || 1;
   const rndArray = getRndIntArray(0, array.length - 1, arrayLength);

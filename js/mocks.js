@@ -5,7 +5,7 @@ const getComment = (id) => ({
   id: id,
   avatar: `img/avatar-${getRndInteger(AVATAR_INDEX.min, AVATAR_INDEX.max)}.svg`,
   message: getStringFromArray(getRndNumberOfItemsFromArray(COMMENT_MESSAGES, COMMENT_MESSAGES_MAX_LENGTH)),
-  name: getRndNumberOfItemsFromArray(COMMENT_NAMES),
+  name: COMMENT_NAMES[getRndInteger(0, COMMENT_NAMES.length)],
 });
 
 // Генерирует от рандомное количество (в заданном диапазоне) объектов с данными о комментариях

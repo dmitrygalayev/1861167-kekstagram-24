@@ -1,2 +1,2 @@
-// import {mockData} from './mocks.js';
-
+// import './bigPicture.js';
+import './previews.js';

@@ -27,33 +27,6 @@ const createComments = (parentNode, data) => {
   commentList.appendChild(fragment);
 };
 
-// const createComments = (parentNode, data) => {
-//   const fragment = document.createDocumentFragment();
-//   parentNode.textContent = '';
-
-//   for (let i = 0; i < data.length; i++) {
-//     const listItem = document.createElement('li');
-//     const listItemImg = document.createElement('img');
-//     const listItemText = document.createElement('p');
-
-//     listItem.className = 'social__comment';
-//     listItemImg.className = 'social__picture';
-//     listItemText.className = 'social__text';
-
-//     listItemImg.src = data[i].avatar;
-//     listItemImg.alt = data[i].name;
-//     listItemImg.style.width = 35;
-//     listItemImg.style.height = 35;
-//     listItemText.textContent = data[i].message;
-
-//     listItem.appendChild(listItemImg);
-//     listItem.appendChild(listItemText);
-//     fragment.appendChild(listItem);
-//   }
-
-//   parentNode.appendChild(fragment);
-// };
-
 const bigPictureOpen = () => {
   body.classList.add('modal-open');
   bigPicture.classList.remove('hidden');

@@ -1,2 +1,2 @@
-// import './bigPicture.js';
+import './bigPicture.js';
 import './previews.js';

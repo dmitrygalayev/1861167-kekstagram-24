@@ -86,7 +86,7 @@ commentsLoadButton.addEventListener('click', (evt) => {
   visibleCommentsCount.textContent =
     currentCommentsCount > commentsArray.length ? commentsArray.length : currentCommentsCount;
   if (currentCommentsCount >= commentsArray.length) {
-    bigPicture.querySelector('.comments-loader').classList.add('hidden');// toDo вынести в константу
+    bigPicture.querySelector('.comments-loader').classList.add('hidden');
   }
 });
 

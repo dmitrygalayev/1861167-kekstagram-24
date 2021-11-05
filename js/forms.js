@@ -29,7 +29,7 @@ newImageDescription.addEventListener('input', (evt) => {
 });
 
 hashtags.addEventListener('input', (evt) => {
-  evt.preventDefault();
+
   const normalizedValue = hashtags.value.toLowerCase();
   const values = normalizedValue.split(/\s/).filter(Boolean);
 
@@ -38,10 +38,10 @@ hashtags.addEventListener('input', (evt) => {
   }
   if (values.length > 5) {
     hashtags.setCustomValidity('Нельзя указать более 5ти хэштегов');
-  } else if (!(/^[а-яА-Я-ёЁa-zA-Z0-9#]+$/).test(normalizedValue)) {
+  } else if (!(/^[а-яА-ЯёЁa-zA-Z0-9#]+$/).test(normalizedValue)) {
     hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации');
   } else {
-    values.for ((value, index) => {
+    values.forEach((value, index) => {
       if (value.charAt() !== '#') {
         hashtags.setCustomValidity('Хэштеги должны начинаться с символа #');
       } else if (value.length === 1 && value.length > 20) {

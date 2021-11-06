@@ -8,7 +8,9 @@ const closeButton = bigPicture.querySelector('#picture-cancel');
 const pictureContainer = document.querySelector('.pictures');
 const commentList = bigPicture.querySelector('.social__comments');
 const overlay = document.querySelector('.overlay');
+const socialCaption = bigPicture.querySelector('.social__caption');
 const commentListItem = bigPicture.querySelector('.social__comment');
+const commentsCounter = bigPicture.querySelector('.social__comment-count');
 const commentsLoadButton = bigPicture.querySelector('.social__comments-loader');
 const totalCommentsCount = bigPicture.querySelector('.comments-count');
 const visibleCommentsCount = bigPicture.querySelector('.visible-comments-count');
@@ -21,7 +23,9 @@ const createComments = (parentNode, data, startIndex = 0, currentStep = STEP, cl
   const fragment = document.createDocumentFragment();
   const commentsCount = data.length > currentStep ? currentStep : data.length;
 
-  if (clearNode) {parentNode.textContent = '';}
+  if (clearNode) {
+    parentNode.textContent = '';
+  }
 
   for (let i = startIndex; i < commentsCount; i++) {
     const commentTemplate = commentListItem.cloneNode(true);
@@ -60,22 +64,25 @@ const onPictureContainerClick = (evt) => {
   commentsArray = [...comments];
   currentCommentsCount = STEP;
 
+  const showPortionOfComments = () => {
+    visibleCommentsCount.textContent = comments.length < STEP ? comments.length : STEP;
+    totalCommentsCount.textContent = comments.length;
+  };
+
   if (comments.length === 0) {
-    bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-    bigPicture.querySelector('.comments-loader').classList.add('hidden');
+    commentsCounter.classList.add('hidden');
+    commentsLoadButton.classList.add('hidden');
   } else if (comments.length < 5 && comments.length > 0) {
-    bigPicture.querySelector('.comments-loader').classList.add('hidden');
-    bigPicture.querySelector('.social__comment-count').classList.remove('hidden');
-    visibleCommentsCount.textContent = comments.length < STEP ? comments.length : STEP;
-    totalCommentsCount.textContent = comments.length;
+    commentsLoadButton.classList.add('hidden');
+    commentsCounter.classList.remove('hidden');
+    showPortionOfComments();
   } else {
-    totalCommentsCount.textContent = comments.length;
-    visibleCommentsCount.textContent = comments.length < STEP ? comments.length : STEP;
-    bigPicture.querySelector('.comments-loader').classList.remove('hidden');
-    bigPicture.querySelector('.social__comment-count').classList.remove('hidden');
+    showPortionOfComments();
+    commentsLoadButton.classList.remove('hidden');
+    commentsCounter.classList.remove('hidden');
   }
 
-  bigPicture.querySelector('.social__caption').textContent = description;
+  socialCaption.textContent = description;
   createComments(commentList, comments);
 };
 
@@ -86,7 +93,7 @@ commentsLoadButton.addEventListener('click', (evt) => {
   visibleCommentsCount.textContent =
     currentCommentsCount > commentsArray.length ? commentsArray.length : currentCommentsCount;
   if (currentCommentsCount >= commentsArray.length) {
-    bigPicture.querySelector('.comments-loader').classList.add('hidden');
+    commentsLoadButton.classList.add('hidden');
   }
 });
 

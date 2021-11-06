@@ -41,20 +41,26 @@ hashtags.addEventListener('input', (evt) => {
   } else if (!(/^[а-яА-ЯёЁa-zA-Z0-9#\s]+$/).test(normalizedValue)) {
     hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации');
   } else {
-    values.forEach((value, index) => {
+
+    for (let i = 0; i < values.length; i++) {
+      const value = values[i];
+
       if (value.charAt() !== '#') {
         hashtags.setCustomValidity('Хэштеги должны начинаться с символа #');
-      } else if (value.length === 1 && value.length > 20) {
-        hashtags.setCustomValidity ('Хэштег не может состоять из одной решетки или быть  длиннее 20-ти знаков');
-      } else if (values.includes(value, index + 1)) {
+        break;
+      } else if (value.length === 1 || value.length > 20) {
+        hashtags.setCustomValidity('Хэштег не может состоять из одной решетки или быть  длиннее 20-ти знаков');
+        break;
+      } else if (values.includes(value, i + 1)) {
         hashtags.setCustomValidity('Один и тот же хэш-тег не может быть использован дважды');
+        break;
       } else if (value.substring(1).includes('#')) {
-        hashtags.setCustomValidity ('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации');
+        hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации2');
+        break;
       } else {
         hashtags.setCustomValidity('');
       }
-
-    });
+    }
   }
   hashtags.reportValidity();
 });

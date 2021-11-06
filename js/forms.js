@@ -28,7 +28,7 @@ newImageDescription.addEventListener('input', (evt) => {
   newImageDescription.reportValidity();
 });
 
-hashtags.addEventListener('input', (evt) => {
+hashtags.addEventListener('input', () => {
 
   const normalizedValue = hashtags.value.toLowerCase();
   const values = normalizedValue.split(/\s/).filter(Boolean);

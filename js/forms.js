@@ -28,8 +28,8 @@ newImageDescription.addEventListener('input', (evt) => {
   newImageDescription.reportValidity();
 });
 
-hashtags.addEventListener('input', () => {
-
+hashtags.addEventListener('input', (evt) => {
+  evt.preventDefault();
   const normalizedValue = hashtags.value.toLowerCase();
   const values = normalizedValue.split(/\s/).filter(Boolean);
 
@@ -38,7 +38,7 @@ hashtags.addEventListener('input', () => {
   }
   if (values.length > 5) {
     hashtags.setCustomValidity('Нельзя указать более 5ти хэштегов');
-  } else if (!(/^[а-яА-ЯёЁa-zA-Z0-9#]+$/).test(normalizedValue)) {
+  } else if (!(/^[а-яА-ЯёЁa-zA-Z0-9#\s]+$/).test(normalizedValue)) {
     hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации');
   } else {
     values.forEach((value, index) => {

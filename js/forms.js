@@ -55,7 +55,7 @@ hashtags.addEventListener('input', (evt) => {
         hashtags.setCustomValidity('Один и тот же хэш-тег не может быть использован дважды');
         break;
       } else if (value.substring(1).includes('#')) {
-        hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации2');
+        hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации');
         break;
       } else {
         hashtags.setCustomValidity('');

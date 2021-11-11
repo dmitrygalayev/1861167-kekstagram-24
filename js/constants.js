@@ -31,4 +31,21 @@ const COMMENT_AMOUNT_RANGE = {
 export const STEP = 5;
 
 export const MAX_COMMENT_LENGTH = 140;
+
+export const FILTERS = {
+  chrome: 'grayscale',
+  sepia: 'sepia',
+  marvin: 'invert',
+  phobos: 'blur',
+  heat: 'brightness',
+  none: '',
+};
+
+export const INC = 'increment';
+export const DEC = 'decrement';
+
+export const INITIAL_SLIDER_VALUE = 100;
+export const SCALE_STEP = 25;
+export const MAX_SCALE_VALUE = 100;
+
 export {PHOTOS_INDEXS, COMMENT_MESSAGES, DESCRIPTIONS, AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_NAMES, LIKES_INDEX, COMMENT_AMOUNT_RANGE};

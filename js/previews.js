@@ -1,9 +1,7 @@
-import {mockData} from './mocks.js';
-
 const previewTemplate = document.querySelector('#picture').content;
 const pictureContainer = document.querySelector('.pictures');
 
-const createPhotos = (data) => {
+export const createPhotos = (data) => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < data.length; i++) {
     const template = previewTemplate.cloneNode(true);
@@ -18,5 +16,3 @@ const createPhotos = (data) => {
   }
   pictureContainer.appendChild(fragment);
 };
-
-createPhotos(mockData);

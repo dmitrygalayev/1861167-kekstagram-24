@@ -16,13 +16,15 @@ const initialSLiderSet = {
   step: 1,
   connect: 'lower',
 };
-let scaleNumber = MAX_SCALE_VALUE;
-let filterEffect =  'none';
+export let scaleNumber = MAX_SCALE_VALUE;
+export let filterEffect =  'none';
+export let effectLevel = 0;
 
 noUiSlider.create(sliderElement, initialSLiderSet);
 
 sliderElement.noUiSlider.on('update', (values, handle) => {
   let value = 0;
+  effectLevel = values[handle];
   switch (filterEffect) {
     case FILTERS.sepia:
       image.style.filter = `${filterEffect}(${values[handle] / 100})`;

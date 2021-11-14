@@ -1,4 +1,6 @@
 import { MAX_COMMENT_LENGTH } from './constants.js';
+import { effectLevel, scaleNumber } from './picture-editing.js';
+import { postPhoto } from './server-interaction.js';
 import { checkStringLength } from './utils/check-string-length.js';
 
 const form = document.querySelector('#upload-select-image');
@@ -8,7 +10,7 @@ const uploadCancelButton = form.querySelector('#upload-cancel');
 const newImageDescription = form.querySelector('.text__description');
 const hashtags = form.querySelector('.text__hashtags');
 
-const editImageFormOpen = () => {
+export const editImageFormOpen = () => {
   document.body.classList.add('modal-open');
   uploadOverlay.classList.remove('hidden');
 };
@@ -86,4 +88,12 @@ document.addEventListener('keydown', (evt) => {
   }
 });
 
-
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const formData = new FormData(form);
+  formData.set('effect-level', effectLevel);
+  formData.set('scale', `${scaleNumber}%`);
+  postPhoto(formData);
+  editImageFormClose();
+  form.reset();
+});

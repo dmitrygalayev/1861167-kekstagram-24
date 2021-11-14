@@ -1,5 +1,5 @@
 import { STEP } from './constants.js';
-import { mockData } from './mocks.js';
+// import { serverData } from './server-interaction.js';
 
 const body = document.querySelector('body');
 const bigPicture = document.querySelector('.big-picture');
@@ -45,12 +45,12 @@ const bigPictureOpen = () => {
   body.classList.add('modal-open');
   bigPicture.classList.remove('hidden');
 };
-const bigPictureClose = () => {
+export const bigPictureClose = () => {
   body.classList.remove('modal-open');
   bigPicture.classList.add('hidden');
 };
 
-const onPictureContainerClick = (evt) => {
+const onPictureContainerClick = (evt, data) => {
   if (!evt.target.classList.contains('picture__img')) {
     return;
   }
@@ -60,7 +60,7 @@ const onPictureContainerClick = (evt) => {
   const src = evt.target.src;
   bigPictureImage.src = src;
 
-  const {comments, description} = mockData.find((item) => src.includes(item.url));
+  const {comments, description} = data.find((item) => src.includes(item.url));
   commentsArray = [...comments];
   currentCommentsCount = STEP;
 
@@ -97,7 +97,6 @@ commentsLoadButton.addEventListener('click', (evt) => {
   }
 });
 
-pictureContainer.addEventListener('click', onPictureContainerClick);
 
 closeButton.addEventListener('click', (evt) => {
   evt.preventDefault();
@@ -115,3 +114,9 @@ overlay.addEventListener('click', (evt) => {
     bigPictureClose();
   }
 });
+
+export const bigPictureListener = (data) => {
+  pictureContainer.addEventListener('click', (evt) => {
+    onPictureContainerClick(evt, data);
+  });
+};

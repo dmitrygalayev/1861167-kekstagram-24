@@ -16,3 +16,4 @@ export const createPhotos = (data) => {
   }
   pictureContainer.appendChild(fragment);
 };
+

@@ -44,4 +44,15 @@ const getRndNumberOfItemsFromArray = (array, maxLength) => {
   // eslint-disable-next-line id-length
   return Array.from({length: arrayLength}, (item, i) => array[rndArray[i]]);
 };
-export {getRndInteger, getRndIntArray, getRndNumberOfItemsFromArray, getStringFromArray};
+
+const getRandomArrayFromData = (data, count) => {
+  const array = [];
+  while (array.length < count) {
+    const randomIndex = getRndInteger(0, data.length - 1);
+    if (!array.includes(data[randomIndex])) {
+      array.push(data[randomIndex]);
+    }
+  }
+  return array;
+};
+export {getRndInteger, getRndIntArray, getRndNumberOfItemsFromArray, getStringFromArray, getRandomArrayFromData};

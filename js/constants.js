@@ -48,4 +48,12 @@ export const INITIAL_SLIDER_VALUE = 100;
 export const SCALE_STEP = 25;
 export const MAX_SCALE_VALUE = 100;
 
+export const FILTERS_TYPES = {
+  default: 'filter-default',
+  random: 'filter-random',
+  discussed: 'filter-discussed',
+};
+
+export const RANDOM_PHOTOS_AMOUNT = 10;
+
 export {PHOTOS_INDEXS, COMMENT_MESSAGES, DESCRIPTIONS, AVATAR_INDEX, COMMENT_MESSAGES_MAX_LENGTH, COMMENT_NAMES, LIKES_INDEX, COMMENT_AMOUNT_RANGE};

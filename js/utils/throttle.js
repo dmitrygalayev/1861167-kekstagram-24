@@ -10,8 +10,7 @@ function throttle (callback, delayBetweenFrames = 400) {
     // Получаем текущую дату в миллисекундах,
     // чтобы можно было в дальнейшем
     // вычислять разницу между кадрами
-    // eslint-disable-next-line prefer-const
-    let now = new Date();
+    const now = new Date();
 
     // Если время между кадрами больше задержки,
     // вызываем наш колбэк и перезаписываем lastTime

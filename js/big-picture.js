@@ -1,5 +1,4 @@
 import { STEP } from './constants.js';
-// import { serverData } from './server-interaction.js';
 
 const body = document.querySelector('body');
 const bigPicture = document.querySelector('.big-picture');
@@ -14,6 +13,7 @@ const commentsCounter = bigPicture.querySelector('.social__comment-count');
 const commentsLoadButton = bigPicture.querySelector('.social__comments-loader');
 const totalCommentsCount = bigPicture.querySelector('.comments-count');
 const visibleCommentsCount = bigPicture.querySelector('.visible-comments-count');
+const likesCount = bigPicture.querySelector('.likes-count');
 
 
 let commentsArray = [];
@@ -60,7 +60,8 @@ const onPictureContainerClick = (evt, data) => {
   const src = evt.target.src;
   bigPictureImage.src = src;
 
-  const {comments, description} = data.find((item) => src.includes(item.url));
+  const {comments, description, likes} = data.find((item) => src.includes(item.url));
+  likesCount.textContent = likes;
   commentsArray = [...comments];
   currentCommentsCount = STEP;
 

@@ -11,7 +11,6 @@ export const getData = (onSuccess, onError) => {
 };
 
 export const postPhoto = (data) => {
-  // showSpinner();
   fetch(POST, {
     method: 'POST',
     body: data,
@@ -23,6 +22,5 @@ export const postPhoto = (data) => {
     })
     .catch(fetchError)
     .finally(() => {
-      // hideSpinner();
     });
 };

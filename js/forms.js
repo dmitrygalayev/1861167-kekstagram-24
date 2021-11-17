@@ -44,8 +44,8 @@ hashtags.addEventListener('input', (evt) => {
     hashtags.setCustomValidity('Хэштег не может содержать пробелы, спецсимволы и символы пунктуации');
   } else {
 
-    for (let i = 0; i < values.length; i++) {
-      const value = values[i];
+    for (let index = 0; index < values.length; index++) {
+      const value = values[index];
 
       if (value.charAt() !== '#') {
         hashtags.setCustomValidity('Хэштеги должны начинаться с символа #');
@@ -53,7 +53,7 @@ hashtags.addEventListener('input', (evt) => {
       } else if (value.length === 1 || value.length > 20) {
         hashtags.setCustomValidity('Хэштег не может состоять из одной решетки или быть  длиннее 20-ти знаков');
         break;
-      } else if (values.includes(value, i + 1)) {
+      } else if (values.includes(value, index + 1)) {
         hashtags.setCustomValidity('Один и тот же хэш-тег не может быть использован дважды');
         break;
       } else if (value.substring(1).includes('#')) {

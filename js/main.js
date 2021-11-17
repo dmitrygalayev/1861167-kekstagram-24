@@ -7,13 +7,13 @@ import './filters.js';
 import { createPhotos } from './previews.js';
 import { bigPictureListener } from './big-picture.js';
 import { getData } from './server-interaction.js';
-import { filterListener } from './filters.js';
+import { attachFilterListener } from './filters.js';
 
 const imageFilters = document.querySelector('.img-filters');
 
 const onSuccess = (data) => {
   createPhotos(data);
-  filterListener(data);
+  attachFilterListener(data);
   bigPictureListener(data);
   imageFilters.classList.remove('img-filters--inactive');
 };

@@ -23,7 +23,7 @@ const onFilterClick = (evt, data) => {
       break;
     case FILTERS_TYPES.discussed:
       evt.target.classList.add('img-filters__button--active');
-      createPhotos(data.sort((a, b) => b.comments.length - a.comments.length));
+      createPhotos(data.sort((number1, number2) => number2.comments.length - number1.comments.length));
       break;
     default:
       filtersDefaultButton.classList.add('img-filters__button--active');
@@ -32,7 +32,7 @@ const onFilterClick = (evt, data) => {
   }
 };
 
-export const filterListener = (data) => {
+export const attachFilterListener = (data) => {
   filtersContainer.addEventListener('click', (evt) => {
     throttle(onFilterClick(evt, data));
   });
